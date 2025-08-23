@@ -1,5 +1,11 @@
 <?php
+session_start();
 
+// if logged in and cookie is still valid then go dashboard
+if (isset($_SESSION['user_id']) && isset($_COOKIE['logged_in'])) {
+    // header("Location: dashboard.php");
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +29,7 @@
           </li>
           <li><a href="">about</a></li>
           <li><a href="">Contact</a></li>
+          <li><a href="">Register</a></li>
         </ul>
       </nav>
       <div class="banner">
@@ -35,7 +42,7 @@
                 </P>
             </div>
             <div class="buy-sell-btn">
-                <button class="sell-btn btn">Sell here</button>
+                <button class="sell-btn btn" onclick="window.location.href='checkSellBtn.php'">Sell here</button>
                 <button class="buy-btn btn">Buy here</button>
             </div>
         </div>
