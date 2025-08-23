@@ -37,7 +37,6 @@
             <div class="buy-sell-btn">
                 <button class="sell-btn btn">Sell here</button>
                 <button class="buy-btn btn">Buy here</button>
-                
             </div>
         </div>
 
