@@ -110,6 +110,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </main>
 
-<script src="validation/registration_validation.js">
+<script src="validation/registration_validation.js"></script>
 </body>
 </html>
