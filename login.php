@@ -6,33 +6,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $userId = $_POST['userId'];
     $password = $_POST['password'];
 
-    // Check if user exists with given ID and password
-    $sql = "SELECT * FROM Users WHERE user_id='$userId' AND password='$password'";
-    $result = mysqli_query($conn, $sql);
+    // First check in Admin table
+    $sqlAdmin = "SELECT * FROM Admin WHERE admin_id='$userId' AND password='$password'";
+    $resultAdmin = mysqli_query($conn, $sqlAdmin);
 
-    if (mysqli_num_rows($result) == 1) {
-        $user = mysqli_fetch_assoc($result);
+    if (mysqli_num_rows($resultAdmin) == 1) {
+        $row = mysqli_fetch_assoc($resultAdmin);
 
-        $_SESSION['userId'] = $user['user_id'];
-        $_SESSION['userType'] = $user['user_type'];
-        $_SESSION['name'] = $user['name'];
+        $_SESSION['user_id'] = $row['admin_id'];
+        $_SESSION['user_type'] = "Admin";
 
-        if ($user['user_type'] == 'Admin') {
-            header("Location: adminDashboard.php");
-            exit;
-        } elseif ($user['user_type'] == 'Farmer') {
-            header("Location: farmerDashboard.php");
-            exit;
-        } elseif ($user['user_type'] == 'Consumer') {
-            header("Location: consumerDashboard.php");
-            exit;
-        } else {
-            echo "<script>alert('Invalid user type!');</script>";
-        }
+        setcookie("logged_in", "1", time() + 600, "/");
 
-    } else {
-        echo "<script>alert('Invalid User ID or Password!');</script>";
+        header("Location: adminDashboard.php");
+        exit;
     }
+
+    // If not admin, check in Users table
+    $sqlUser = "SELECT * FROM Users WHERE user_id='$userId' AND password='$password'";
+    $resultUser = mysqli_query($conn, $sqlUser);
+
+    if (mysqli_num_rows($resultUser) == 1) {
+        $row = mysqli_fetch_assoc($resultUser);
+
+        $_SESSION['user_id'] = $row['user_id'];
+        $_SESSION['user_type'] = $row['user_type'];
+
+        setcookie("logged_in", "1", time() + 600, "/");
+
+        if ($row['user_type'] == "Farmer") {
+            header("Location: farmerDashboard.php");
+        } elseif ($row['user_type'] == "Consumer") {
+            header("Location: consumerDashboard.php");
+        }
+        exit;
+    }
+
+    // if not found in any table
+    echo "<script>alert('Invalid login!');</script>";
 }
 ?>
 

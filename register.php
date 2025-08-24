@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/style.css?v=<?php echo time(); ?>">
     <link rel="icon" href="images/logo1.png">
     <title>AgriConnect_Register</title>
 </head>
@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </li>
           <li><a href="">about</a></li>
           <li><a href="">Contact</a></li>
-          <li><a href="">Log In</a></li>
+          <li><a href="login.php">Log In</a></li>
         </ul>
       </nav>
     </header>

@@ -12,7 +12,7 @@ if (isset($_SESSION['user_id']) && isset($_COOKIE['logged_in'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/style.css?v=<?php echo time(); ?>">
     <link rel="icon" href="images/logo1.png">
     <title>AgriConnect</title>
 </head>
