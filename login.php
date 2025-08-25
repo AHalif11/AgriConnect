@@ -43,7 +43,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // if not found in any table
-    echo "<script>alert('Invalid login!');</script>";
+    $_SESSION['login-error_message'] = 'Invalid Log In, Please Enter Valid Credential';
+    header("Location: login.php");
+    exit();
 }
 ?>
 
@@ -72,6 +74,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </header>
     <main>
         <div id="login-hero" style="height: 601px; background:rgba(197, 244, 193, 1)">
+            <div id="login-server-error-message" style="<?php echo isset($_SESSION['login-error_message']) ? '' : 'display:none;'; ?>">
+                <?php
+                        if (isset($_SESSION['login-error_message'])) {
+                            echo $_SESSION['login-error_message'];
+                            unset($_SESSION['login-error_message']); // Clear the message
+                        } 
+                    ?>
+                </div>
             <div id="login-form">
                 <form action="" method="post">
                     <label for="userId">User ID</label><br>

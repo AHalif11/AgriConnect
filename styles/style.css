@@ -78,3 +78,69 @@ nav .nav-logo span {
 }
 
 /* registration page */
+#server-error-message,
+#login-server-error-message {
+  background-color: #699f81;
+  color: #ef204a;
+  text-align: center;
+  font-weight: bold;
+  padding: 12px 20px;
+  border: 1px solid #0a2b0d;
+  display: block;
+}
+#registration-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  width: 100%;
+}
+#registration-form {
+  width: 40%;
+  padding-left: 170px;
+}
+#registration-description-img {
+  margin-top: 80px;
+}
+.inp {
+  height: 30px;
+  width: 80%;
+  border-radius: 3px;
+  margin: 4px 0 8px 0;
+  border: none;
+  font-size: 17px;
+  color: #362f2f;
+}
+.address-inp {
+  height: 50px;
+  width: 80%;
+  margin: 4px 0 8px 0;
+  font-size: 17px;
+  color: #362f2f;
+}
+#registration-description {
+  padding-left: 200px;
+}
+.reg-btn {
+  height: 40px;
+  width: 80%;
+  background-color: #699f81;
+  font-size: 20px;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.reg-btn:hover {
+  background-color: #407558;
+}
+.form-header {
+  margin-bottom: 15px;
+}
+.main-form label {
+  font-size: 18px;
+}
+.have-acc {
+  font-size: 20px;
+}
