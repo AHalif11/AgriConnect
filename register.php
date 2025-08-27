@@ -140,7 +140,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div id="registration-description">
                     <div id="registration-description-header">
-                        <h1>Reach Your Target Faster With Us.</h1>
+                        <h1>Reach Your Target<br>Faster With Us.</h1>
                     </div>
                     <div id="registration-description-img">
                         <img src="./images/register.png" alt="img">

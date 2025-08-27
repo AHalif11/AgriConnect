@@ -9,9 +9,9 @@
 nav {
   background-color: rgba(0, 0, 0, 0.1);
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding: 27px 0px;
+  padding: 27px 145px;
 }
 nav > ul {
   display: flex;
@@ -78,6 +78,7 @@ nav .nav-logo span {
 }
 
 /* registration page */
+
 #server-error-message,
 #login-server-error-message {
   background-color: #699f81;
@@ -91,40 +92,42 @@ nav .nav-logo span {
 #registration-content {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  width: 100%;
+  justify-content: space-evenly;
 }
 #registration-form {
-  width: 40%;
-  padding-left: 170px;
+  width: 30%;
+  padding: 35px 70px;
+  border: 2px solid black;
+  margin: 50px 0;
 }
 #registration-description-img {
-  margin-top: 80px;
+  margin-top: 120px;
 }
 .inp {
   height: 30px;
-  width: 80%;
+  width: 100%;
   border-radius: 3px;
-  margin: 4px 0 8px 0;
+  margin: 5px 0 10px 0;
   border: none;
   font-size: 17px;
   color: #362f2f;
 }
 .address-inp {
   height: 50px;
-  width: 80%;
+  width: 100%;
   margin: 4px 0 8px 0;
   font-size: 17px;
   color: #362f2f;
 }
 #registration-description {
-  padding-left: 200px;
+  width: 42%;
+}
+#registration-description-header {
+  font-size: 22px;
 }
 .reg-btn {
   height: 40px;
-  width: 80%;
+  width: 100%;
   background-color: #699f81;
   font-size: 20px;
   border-radius: 3px;
@@ -136,7 +139,8 @@ nav .nav-logo span {
   background-color: #407558;
 }
 .form-header {
-  margin-bottom: 15px;
+  margin-bottom: 35px;
+  font-size: 18px;
 }
 .main-form label {
   font-size: 18px;
@@ -144,3 +148,5 @@ nav .nav-logo span {
 .have-acc {
   font-size: 20px;
 }
+
+/* Log In page */
