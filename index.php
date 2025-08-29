@@ -17,8 +17,8 @@ if (isset($_SESSION['user_id']) && isset($_COOKIE['logged_in'])) {
     <title>AgriConnect</title>
 </head>
 <body>
-    <header style="background: url(images/main-slider.png) no-repeat center center; background-size: cover;">
-      <nav>
+  <header>
+    <nav id="navBar">
         <div class="nav-logo">
           <h3 class="nav-title"><span>Agri</span>Connect</h3>
         </div>
@@ -31,9 +31,9 @@ if (isset($_SESSION['user_id']) && isset($_COOKIE['logged_in'])) {
           <li><a href="">Contact</a></li>
           <li><a href="">Register</a></li>
         </ul>
-      </nav>
-      <div class="banner">
-        <div class="banner-content">
+    </nav>
+    <div class="banner" style="background: url(images/main-slider.png) no-repeat center center; background-size: cover;">
+      <div class="banner-content">
             <div class="banner-description">
                 <p class="banner-head-para">WELCOME TO Agricultural Products Rural Entrepreneurship Management System.</p>
                 <h1>AGRI-CONNECT HUB</h1>
@@ -42,12 +42,15 @@ if (isset($_SESSION['user_id']) && isset($_COOKIE['logged_in'])) {
                 </P>
             </div>
             <div class="buy-sell-btn">
-                <button class="sell-btn btn" onclick="window.location.href='checkSellBtn.php'">Sell here</button>
-                <button class="buy-btn btn">Buy here</button>
+              <button class="sell-btn btn" onclick="window.location.href='checkSellBtn.php'">Sell here</button>
+              <button class="buy-btn btn">Buy here</button>
             </div>
-        </div>
-
       </div>
-    </header>
+    </div>
+  </header>
+  <main></main>
+  <footer style="background-color :rgba(134, 205, 128, 1); height:200px; width:100%">
+
+    </footer>
 </body>
 </html>

@@ -4,14 +4,17 @@
   box-sizing: border-box;
 }
 .banner {
-  height: 601px;
+  height: 844px;
 }
+
 nav {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 27px 145px;
+  position: fixed;
+  width: 100%;
 }
 nav > ul {
   display: flex;
@@ -25,19 +28,19 @@ nav ul li {
 }
 nav ul li a {
   text-decoration: none;
-  color: #fff;
+  color: #000000;
 }
 nav .nav-title {
   font-size: 35px;
   font-weight: 500;
-  color: #fff;
+  color: #000000;
 }
 nav .nav-logo span {
   color: #437057;
 }
 
 .banner-content {
-  padding: 92px 630px 0px 136px;
+  padding: 220px 630px 0 136px;
   text-transform: uppercase;
 }
 .banner-head-para {
@@ -49,9 +52,9 @@ nav .nav-logo span {
 }
 .banner-description h1 {
   color: #d7d4d4;
-  font-size: 86px;
+  font-size: 66px;
   font-weight: 600;
-  margin-bottom: 30px;
+  margin: 50px 0;
   line-height: 93.67%;
 }
 .banner-foot-para {
@@ -70,11 +73,15 @@ nav .nav-logo span {
   margin: 38px 15px 0px 0px;
   text-transform: uppercase;
   background-color: rgb(115, 160, 114);
-
   cursor: pointer;
 }
 .btn:hover {
   background-color: rgb(139, 194, 137);
+  transition: all 0.2s ease-out;
+}
+.sell-btn,
+.buy-btn {
+  margin-top: 65px;
 }
 
 /* registration page */
@@ -89,10 +96,12 @@ nav .nav-logo span {
   border: 1px solid #0a2b0d;
   display: block;
 }
-#registration-content {
+#registration-content,
+#login-content {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  padding: 100px 0;
 }
 #registration-form {
   width: 30%;
@@ -100,7 +109,8 @@ nav .nav-logo span {
   border: 2px solid black;
   margin: 50px 0;
 }
-#registration-description-img {
+#registration-description-img,
+#login-description-img {
   margin-top: 120px;
 }
 .inp {
@@ -111,6 +121,7 @@ nav .nav-logo span {
   border: none;
   font-size: 17px;
   color: #362f2f;
+  padding: 0 10px;
 }
 .address-inp {
   height: 50px;
@@ -118,8 +129,10 @@ nav .nav-logo span {
   margin: 4px 0 8px 0;
   font-size: 17px;
   color: #362f2f;
+  padding: 0 10px;
 }
-#registration-description {
+#registration-description,
+#login-description {
   width: 42%;
 }
 #registration-description-header {
@@ -135,8 +148,10 @@ nav .nav-logo span {
   cursor: pointer;
   margin-bottom: 20px;
 }
-.reg-btn:hover {
+.reg-btn:hover,
+.login-btn:hover {
   background-color: #407558;
+  transition: all 0.2s ease-in;
 }
 .form-header {
   margin-bottom: 35px;
@@ -148,5 +163,43 @@ nav .nav-logo span {
 .have-acc {
   font-size: 20px;
 }
-
-/* Log In page */
+.login-form-header {
+  margin-bottom: 60px;
+}
+#login-description {
+  padding: 80px 0;
+}
+#login-form {
+  width: 30%;
+  padding: 70px 70px;
+  border: 2px solid black;
+}
+#login-description-header {
+  font-size: 22px;
+}
+.login-header-span {
+  font-size: 21px;
+}
+.login-btn {
+  height: 40px;
+  width: 100%;
+  background-color: #699f81;
+  font-size: 20px;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  margin: 35px 0;
+}
+.main-login-form label {
+  font-size: 18px;
+}
+.login-inp {
+  height: 35px;
+  width: 100%;
+  border-radius: 3px;
+  margin: 10px 0 15px 0;
+  border: none;
+  font-size: 17px;
+  color: #362f2f;
+  padding: 0 6px;
+}

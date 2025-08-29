@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>AgriConnect_Register</title>
 </head>
 <body>
-    <header style="background: url(images/main-slider.png) no-repeat center center; background-size: cover;">
+    <header>
       <nav>
         <div class="nav-logo">
           <h3 class="nav-title"><span>Agri</span>Connect</h3>
@@ -94,19 +94,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="main-form">
                         <form action=""  method="post" onsubmit="return validateForm()">
                             <label for="userId">User ID</label><br>
-                            <input type="text" class="inp" id="userId" name="userId" required><br>
+                            <input type="text" class="inp" id="userId" name="userId" placeholder="Hello123" required><br>
                             <div id="userId-error"></div>
 
                             <label for="name">Name</label><br>
-                            <input type="text" class="inp" id="name" name="name" required><br>
+                            <input type="text" class="inp" id="name" name="name" placeholder="Mr. X" required><br>
                             <div id="name-error"></div>
 
                             <label for="email">E-Mail</label><br>
-                            <input type="email" class="inp" id="email" name="email" required><br>
+                            <input type="email" class="inp" id="email" name="email" placeholder="abc@example.com" required><br>
                             <div id="email-error"></div>
 
                             <label for="phone">Phone Number</label><br>
-                            <input type="text" class="inp" id="phone" name="phone" required><br>
+                            <input type="text" class="inp" id="phone" name="phone" placeholder="01711111111" required><br>
                             <div id="phone-error"></div>
 
                             <label for="password">Password</label><br>
@@ -151,6 +151,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         </div>
     </main>
+    <footer style="background-color :rgba(134, 205, 128, 1); height:200px; width:100%">
+
+    </footer>
 
 <script src="validation/registration_validation.js"></script>
 </body>
