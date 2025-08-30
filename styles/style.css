@@ -8,7 +8,7 @@
 }
 
 nav {
-  background-color: rgba(255, 255, 255);
+  background-color: rgb(230, 230, 230);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,7 +28,7 @@ nav ul li {
 }
 nav ul li a {
   text-decoration: none;
-  color: #000000;
+  color: #434343;
 }
 nav .nav-title {
   font-size: 35px;
@@ -88,13 +88,14 @@ nav .nav-logo span {
 
 #server-error-message,
 #login-server-error-message {
-  background-color: #699f81;
+  background-color: #8bbfa3;
   color: #ef204a;
   text-align: center;
   font-weight: bold;
-  padding: 12px 20px;
+  padding: 115px 0px 15px 0px;
   border: 1px solid #0a2b0d;
   display: block;
+  font-size: 18px;
 }
 #registration-content,
 #login-content {
@@ -202,4 +203,117 @@ nav .nav-logo span {
   font-size: 17px;
   color: #362f2f;
   padding: 0 6px;
+}
+
+/* consumer banner */
+#Consumer-dashboard-banner-hero {
+  padding: 105px 0 50px 0;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 50px;
+}
+#banner-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#banner-left {
+  height: 570px;
+  width: 850px;
+  border-radius: 10px;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+  padding: 155px 216px 0 60px;
+}
+.banner-left-content {
+  color: rgba(255, 255, 255, 1);
+}
+.banner-left-content h1 {
+  font-size: 48px;
+  margin-bottom: 45px;
+}
+.banner-left-content h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.banner-left-content p {
+  font-size: 16px;
+  opacity: 0.8;
+  margin-bottom: 45px;
+}
+.shopNow-btn {
+  width: 191px;
+  height: 51px;
+  border-radius: 53px;
+  background-color: rgba(255, 255, 255, 1);
+  border: none;
+  text-transform: uppercase;
+  color: #407558;
+  font-size: 18px;
+}
+.off-back {
+  width: 108px;
+  height: 38px;
+  background-color: #f1c42f;
+  padding: 4px 12px 4px 12px;
+  color: #000000;
+}
+
+#top {
+  width: 393px;
+  height: 268px;
+  border-radius: 10px;
+  transform: rotateY(-180deg);
+  z-index: -1;
+}
+#bottom {
+  width: 393px;
+  height: 268px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 45px;
+}
+.banner-top-content {
+  padding: 55px 0 0 32px;
+  color: rgba(26, 26, 26, 1);
+  transform: rotateY(-180deg);
+  line-height: 35px;
+}
+.banner-top-content p {
+  color: rgba(102, 102, 102, 1);
+}
+.banner-bottom-content {
+  color: rgba(255, 255, 255, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/* featured content */
+#featured-hero {
+  /* Featured */
+  width: 1390px;
+  height: 128px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  margin: 50px 65px;
+  background-color: #ffffff;
+  box-shadow: 5px 4px 7px rgba(0, 0, 0, 0.5);
+}
+#free-shipping,
+#c-support,
+#s-payment,
+#money-back {
+  display: flex;
+  gap: 10px;
+}
+.delivery-icon {
 }
