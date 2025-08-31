@@ -1,0 +1,319 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.banner {
+  height: 844px;
+}
+
+nav {
+  background-color: rgb(230, 230, 230);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 27px 145px;
+  position: fixed;
+  width: 100%;
+}
+nav > ul {
+  display: flex;
+}
+nav ul li {
+  list-style: none;
+  margin-right: 44px;
+  font-size: 24px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #434343;
+}
+nav .nav-title {
+  font-size: 35px;
+  font-weight: 500;
+  color: #000000;
+}
+nav .nav-logo span {
+  color: #437057;
+}
+
+.banner-content {
+  padding: 220px 630px 0 136px;
+  text-transform: uppercase;
+}
+.banner-head-para {
+  color: #d7d4d4;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  margin-bottom: 30px;
+}
+.banner-description h1 {
+  color: #d7d4d4;
+  font-size: 66px;
+  font-weight: 600;
+  margin: 50px 0;
+  line-height: 93.67%;
+}
+.banner-foot-para {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 28px;
+  color: #d7d4d4;
+}
+.btn {
+  padding: 14px 25px;
+  border-radius: 8px;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 38px 15px 0px 0px;
+  text-transform: uppercase;
+  background-color: rgb(115, 160, 114);
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: rgb(139, 194, 137);
+  transition: all 0.2s ease-out;
+}
+.sell-btn,
+.buy-btn {
+  margin-top: 65px;
+}
+
+/* registration page */
+
+#server-error-message,
+#login-server-error-message {
+  background-color: #8bbfa3;
+  color: #ef204a;
+  text-align: center;
+  font-weight: bold;
+  padding: 115px 0px 15px 0px;
+  border: 1px solid #0a2b0d;
+  display: block;
+  font-size: 18px;
+}
+#registration-content,
+#login-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 100px 0;
+}
+#registration-form {
+  width: 30%;
+  padding: 35px 70px;
+  border: 2px solid black;
+  margin: 50px 0;
+}
+#registration-description-img,
+#login-description-img {
+  margin-top: 120px;
+}
+.inp {
+  height: 30px;
+  width: 100%;
+  border-radius: 3px;
+  margin: 5px 0 10px 0;
+  border: none;
+  font-size: 17px;
+  color: #362f2f;
+  padding: 0 10px;
+}
+.address-inp {
+  height: 50px;
+  width: 100%;
+  margin: 4px 0 8px 0;
+  font-size: 17px;
+  color: #362f2f;
+  padding: 0 10px;
+}
+#registration-description,
+#login-description {
+  width: 42%;
+}
+#registration-description-header {
+  font-size: 22px;
+}
+.reg-btn {
+  height: 40px;
+  width: 100%;
+  background-color: #699f81;
+  font-size: 20px;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.reg-btn:hover,
+.login-btn:hover {
+  background-color: #407558;
+  transition: all 0.2s ease-in;
+}
+.form-header {
+  margin-bottom: 35px;
+  font-size: 18px;
+}
+.main-form label {
+  font-size: 18px;
+}
+.have-acc {
+  font-size: 20px;
+}
+.login-form-header {
+  margin-bottom: 60px;
+}
+#login-description {
+  padding: 80px 0;
+}
+#login-form {
+  width: 30%;
+  padding: 70px 70px;
+  border: 2px solid black;
+}
+#login-description-header {
+  font-size: 22px;
+}
+.login-header-span {
+  font-size: 21px;
+}
+.login-btn {
+  height: 40px;
+  width: 100%;
+  background-color: #699f81;
+  font-size: 20px;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  margin: 35px 0;
+}
+.main-login-form label {
+  font-size: 18px;
+}
+.login-inp {
+  height: 35px;
+  width: 100%;
+  border-radius: 3px;
+  margin: 10px 0 15px 0;
+  border: none;
+  font-size: 17px;
+  color: #362f2f;
+  padding: 0 6px;
+}
+
+/* consumer banner */
+#Consumer-dashboard-banner-hero {
+  padding: 105px 0 50px 0;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 50px;
+}
+#banner-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#banner-left {
+  height: 570px;
+  width: 850px;
+  border-radius: 10px;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+  padding: 155px 216px 0 60px;
+}
+.banner-left-content {
+  color: rgba(255, 255, 255, 1);
+}
+.banner-left-content h1 {
+  font-size: 48px;
+  margin-bottom: 45px;
+}
+.banner-left-content h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.banner-left-content p {
+  font-size: 16px;
+  opacity: 0.8;
+  margin-bottom: 45px;
+}
+.shopNow-btn {
+  width: 191px;
+  height: 51px;
+  border-radius: 53px;
+  background-color: rgba(255, 255, 255, 1);
+  border: none;
+  text-transform: uppercase;
+  color: #407558;
+  font-size: 18px;
+}
+.off-back {
+  width: 108px;
+  height: 38px;
+  background-color: #f1c42f;
+  padding: 4px 12px 4px 12px;
+  color: #000000;
+}
+
+#top {
+  width: 393px;
+  height: 268px;
+  border-radius: 10px;
+  transform: rotateY(-180deg);
+  z-index: -1;
+}
+#bottom {
+  width: 393px;
+  height: 268px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 45px;
+}
+.banner-top-content {
+  padding: 55px 0 0 32px;
+  color: rgba(26, 26, 26, 1);
+  transform: rotateY(-180deg);
+  line-height: 35px;
+}
+.banner-top-content p {
+  color: rgba(102, 102, 102, 1);
+}
+.banner-bottom-content {
+  color: rgba(255, 255, 255, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/* featured content */
+#featured-hero {
+  /* Featured */
+  width: 1390px;
+  height: 128px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  margin: 50px 65px;
+  background-color: #ffffff;
+  box-shadow: 5px 4px 7px rgba(0, 0, 0, 0.5);
+}
+#free-shipping,
+#c-support,
+#s-payment,
+#money-back {
+  display: flex;
+  gap: 10px;
+}
+.delivery-icon {
+}
