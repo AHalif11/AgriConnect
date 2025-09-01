@@ -31,7 +31,7 @@
                 </p>
             </div>
             <div class="buy-sell-btn">
-                <button class="buy-btn btn"  onclick="window.location.href='views/consumer/consumerDashboard.php'">Buy here</button>
+                <button class="buy-btn btn"  onclick="window.location.href='./views/consumer/consumerDashboard.php'">Buy here</button>
                 <button class="sell-btn btn" onclick="window.location.href='controllers/C_checkSellBtn.php'">Sell here</button>
             </div>
         </div>
