@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,8 +16,8 @@ session_start();
         </div>
         <ul>
             <li><a href=""><span>Home</span></a></li>
-            <li><a href="">About</a></li>
-            <li><a href="">Contact</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
             <li><a href="views/register.php">Register</a></li>
         </ul>
     </nav>
@@ -33,8 +31,8 @@ session_start();
                 </p>
             </div>
             <div class="buy-sell-btn">
+                <button class="buy-btn btn"  onclick="window.location.href='views/consumer/consumerDashboard.php'">Buy here</button>
                 <button class="sell-btn btn" onclick="window.location.href='controllers/C_checkSellBtn.php'">Sell here</button>
-                <button class="buy-btn btn" onclick="window.location.href='views/consumer/consumerDashboard.php'">Buy here</button>
             </div>
         </div>
     </div>
