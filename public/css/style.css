@@ -317,3 +317,16 @@ nav .nav-logo span {
 }
 .delivery-icon {
 }
+
+.footer {
+  display: flex;
+  justify-content: flex-end;    
+  align-items: center;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  background-color: rgba(134, 205, 128, 1);
+  height: 80px;                
+  width: 100%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+ 

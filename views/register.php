@@ -106,9 +106,11 @@ session_start();
         </div>
     </div>
 </main>
-
-<footer style="background-color: rgba(134, 205, 128, 1); height:200px; width:100%"></footer>
-
 <script src="../public/validation/registration_validation.js"></script>
+
+    <footer class="footer">
+        <p>&copy; 2025 AgriConnect. All Rights Reserved.</p>
+    </footer>
+
 </body>
 </html>
