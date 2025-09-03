@@ -46,12 +46,13 @@
                 
                             <label for="password">Password</label><br>
                             <input type="password" id="password" name="password" class="login-inp" required placeholder="Write Your Password"><br>
+                            <a href="forgot_password.php" class="forgotPassBtn">Forgot Password?</a>
                             
                             <button type="submit" class="login-btn">LOG IN</button> 
                         </form>
                     </div>
                     <label class="have-acc" for="">Don't have an Account?</label>
-                    <a href="register.php" style="font-size : 20px;margin-left: 5px;">Sign Up</a>
+                    <a href="register.php" class="GoRegBtn">Sign Up</a>
                 </div>
                 <div id="login-description">
                     <div id="login-description-header">
