@@ -8,21 +8,49 @@
 <title>Reset Password - AgriConnect</title>
 </head>
 <body>
-<div class="reset-password-container">
-    <h1>Reset Your Password</h1>
-    <?php
-    if(!isset($_SESSION['fp_verified']) || !$_SESSION['fp_verified']) {
-        $_SESSION['fp_error'] = "Unauthorized access.";
-        header("Location: ../views/forgot_password.php");
-        exit();
-    }
-    if(isset($_SESSION['fp_error'])) { echo "<p style='color:red;'>".$_SESSION['fp_error']."</p>"; unset($_SESSION['fp_error']); }
-    ?>
-    <form action="../controllers/C_resetPassword.php" method="post">
-        <input type="password" name="password" placeholder="New Password" required>
-        <input type="password" name="confirm_password" placeholder="Confirm Password" required>
-        <button type="submit">Update Password</button>
-    </form>
-</div>
+    <header>
+        <nav>
+            <div class="nav-logo">
+                <h3 class="nav-title"><span>Agri</span>Connect</h3>
+            </div>
+            <ul>
+                <li><a href="../index.php"><span>Home</span></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <?php
+        if (!isset($_SESSION['fp_verified']) || !$_SESSION['fp_verified']) {
+            $_SESSION['fp_error'] = "Unauthorized access.";
+            header("Location: ../views/forgot_password.php");
+            exit();
+        }
+        ?>
+
+        <?php if (isset($_SESSION['fp_error'])): ?>
+            <div id="server-error-message">
+                <?php
+                    echo $_SESSION['fp_error'];
+                    unset($_SESSION['fp_error']);
+                ?>
+            </div>
+        <?php endif; ?>
+
+        <div id="reset-password-hero" style="background:rgba(197, 244, 193, 1);" >
+            <div id="reset-Pass-Content">
+                <h1>Reset Your Password</h1>
+                <p style="margin-bottom: 25px;">Please Check Your E-mail for code</p>
+                        
+                <form action="../controllers/C_resetPassword.php" method="post">
+                    <input style="margin: 20px 0;" class="inp-2" type="password" name="password" placeholder="New Password" required>
+                    <input style="margin: 20px 0;" class="inp-2" type="password" name="confirm_password" placeholder="Confirm Password" required>
+                    <button class="reg-btn" type="submit">Update Password</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2025 AgriConnect. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
