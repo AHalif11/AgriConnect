@@ -505,3 +505,60 @@ h2 {
   padding: 50px;
   margin-top: 130px;
 }
+
+/* footer */
+.footer-container {
+  text-align: center;
+  padding-bottom: 110px;
+  background: rgba(134, 205, 128, 1);
+}
+
+.footer-container .footer-text {
+  max-width: 770px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 110px 0px 15px;
+}
+
+.footer-logo h3 {
+  color: #131318;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-left: 16px;
+  text-transform: capitalize;
+}
+.footer-text p {
+  color: #434343;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 26px;
+  margin-bottom: 32px;
+}
+
+.footer-icon {
+  max-width: 175px;
+  height: 24px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+.footer-icon i {
+  margin-right: 20px;
+  height: 24px;
+}
+.footer-container hr {
+  max-width: 872px;
+  margin: 0 auto;
+}
+
+.footer-copyright {
+  margin: 50px auto 0px;
+  color: #131318;
+  font-family: Inter;
+  font-size: 1rem;
+  font-weight: 300;
+}

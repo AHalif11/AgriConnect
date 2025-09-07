@@ -108,8 +108,28 @@ if (!isset($_SESSION['user_id']) || !isset($_COOKIE['logged_in'])) {
 
       
     </main>
-    <footer class="footer">
-        <p>&copy; 2025 AgriConnect. All Rights Reserved.</p>
+    <footer>
+      <div class="footer-container">
+        <div class="footer-text">
+          <div class="footer-logo">
+            <img src="public/images/logo1.png" alt="" style="height:40px">
+            <h3>Agri<span>Connect</span></h3>
+          </div>
+          <p>
+            AgriConnect is a localized platform that connects farmers, suppliers, and consumers, making agriculture more accessible, efficient, and sustainable.
+          </p>
+        </div>
+        <div class="footer-icon">
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-github"></i>
+        </div>
+        <hr />
+        <div class="footer-copyright">
+          <h3><p>&copy; 2025 AgriConnect. All Rights Reserved.</h3>
+        </div>
+      </div>
     </footer>
 </body>
 </html>
