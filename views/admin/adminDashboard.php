@@ -14,9 +14,9 @@ if (!isset($_SESSION['user_id'], $_COOKIE['logged_in']) || ($_SESSION['user_type
 <link rel="icon" href="../../public/images/logo1.png">
 <title>Admin Dashboard</title>
 </head>
-<body style="background-color: rgba(169, 245, 162, 1);">
+<body style="background-color: rgba(169, 245, 162, 1); ">
 <header>
-<nav>
+<nav  style="z-index:1000; position: fixed;">
     <div class="nav-logo"><h3 class="nav-title"><span>Agri</span>Connect</h3></div>
     <ul>
         <li><a href="../../index.php">Home</a></li>
