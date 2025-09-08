@@ -1,9 +1,9 @@
-<?php /*
+<?php
 session_start();
 if (!isset($_SESSION['user_id'], $_COOKIE['logged_in']) || ($_SESSION['user_type'] ?? '') !== 'Admin') {
     header("Location: ../../views/login.php");
     exit;
-}*/
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

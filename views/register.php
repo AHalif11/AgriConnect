@@ -9,7 +9,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/css/style.css?v=<?php echo time(); ?>">
     <link rel="icon" href="../public/images/logo1.png">
-    <title>AgriConnect_Register</title>
+    <title>AgriConnect Registration</title>
 </head>
 <body>
 <header>
@@ -71,7 +71,7 @@ session_start();
 
                         <label for="userType">User Type</label><br>
                         <select name="userType" class="inp" id="userType" onchange="toggleNid()">
-                            <option value="">--------Select--------</option>
+                            <option value="">-------Select-------</option>
                             <option value="consumer">Consumer</option>
                             <option value="farmer">Farmer</option>
                         </select><br>

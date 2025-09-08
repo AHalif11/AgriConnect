@@ -13,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $address  = trim($_POST['address'] ?? '');
     $nid      = isset($_POST['nid']) && $_POST['nid'] !== '' ? trim($_POST['nid']) : null;
 
+    //object create for userModel named "model"
     $model = new UserModel($conn);
 
     // Server-side minimal validation
