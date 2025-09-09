@@ -349,7 +349,7 @@ nav .nav-logo span {
   gap: 20px;
   min-height: 500px;
   padding: 20px;
-  margin:auto;
+  margin: auto;
 }
 
 #admin_left_pannel {
@@ -363,13 +363,12 @@ nav .nav-logo span {
   border-radius: 10px;
   padding: 20px;
   display: inline-block;
-  margin:auto;
+  margin: auto;
   box-sizing: border-box;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 #admin_right_pannel {
-
   width: 65%;
   height: 500px;
   display: flex;
@@ -559,4 +558,27 @@ h2 {
   font-family: Inter;
   font-size: 1rem;
   font-weight: 300;
+}
+/* profile */
+#profile-container {
+  display: flex;
+  min-height: 600px;
+  padding-top: 150px;
+  justify-content: space-around;
+}
+#profile-container-left {
+  width: 20%;
+  min-height: 500px;
+  border: 2px solid black;
+}
+#profile-container-right {
+  width: 70%;
+  min-height: 500px;
+  border: 2px solid black;
+}
+#profile-container-right-details {
+  width: 80%;
+  background-color: #8bbfa3;
+  margin: auto;
+  padding: 30px 50px 0;
 }

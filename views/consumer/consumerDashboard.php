@@ -30,7 +30,11 @@ if (!isset($_SESSION['user_id']) || !isset($_COOKIE['logged_in'])) {
           <li><a href="#">Product</a></li>
           <li><a href="about.php">About</a></li>
           <li><a href="contact.php">Contact</a></li>
-          <li><a href="#">profile</a></li>
+          <li>
+            <a href="profile.php">
+        <?php echo htmlspecialchars($_SESSION['user_name']); ?>
+    </a>
+          </li>
         </ul>
       </nav>
     </header>
@@ -46,7 +50,6 @@ if (!isset($_SESSION['user_id']) || !isset($_COOKIE['logged_in'])) {
                 <h4>Sale UP TO <span class="off-back">30% OFF</span></h4>
                 <p>Free Shipping on all your order</p>
                 <button class="shopNow-btn">shop Now  -></button>
-
               </div>
         </div>
         <div id="banner-right">
@@ -55,12 +58,11 @@ if (!isset($_SESSION['user_id']) || !isset($_COOKIE['logged_in'])) {
                 <h4>SUMMER DEALS</h4>
                 <h1>75% OFF</h1>
                 <p>Only Fruits & Vegetables</p>
-
-              </div>
+            </div>
           </div>
           <div id="bottom" style="background: linear-gradient(rgba(0, 38, 3, 0.8), rgba(0, 38, 3, 0.8)), url('../../public/images/BgBottom.png') no-repeat center center / cover;">
             <div class="banner-bottom-content">
-              <h4>  BEST DEAL</h4>
+              <h4>BEST DEAL</h4>
               <h1>Special Products</h1>
               <h1>Deal of the Month</h1>
             </div>
@@ -68,6 +70,7 @@ if (!isset($_SESSION['user_id']) || !isset($_COOKIE['logged_in'])) {
         </div>
       </div>
       <!-- consumer dashboard banner end -->
+
       <!-- consumer dashboard featured start -->
       <div id="featured-hero">
         <div id="free-shipping">
@@ -101,13 +104,18 @@ if (!isset($_SESSION['user_id']) || !isset($_COOKIE['logged_in'])) {
             <p>7 days Money-Back Guarantee</p>
           </div>
         </div> 
-
-
       </div>
       <!-- consumer dashboard featured end -->
 
-      
+       <section>
+        <div id="discount-banner">
+          <div class="discount-banner-description"style="margin:80px 100px;">
+            <img src="../../public/images/DiscountBanner.png" alt="">
+          </div>
+        </div>
+       </section>
     </main>
+    
     <footer>
       <div class="footer-container">
         <div class="footer-text">

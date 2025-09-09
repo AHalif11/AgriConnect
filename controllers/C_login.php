@@ -8,24 +8,32 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $password = trim($_POST['password'] ?? '');
     $model    = new UserModel($conn);
 
-    //Admin login
+    // --- Admin login ---
     $admin = $model->findAdminByCredentials($userId, $password);
     if ($admin) {
-        $_SESSION['user_id']   = $admin['admin_id'];
-        $_SESSION['user_type'] = "Admin";
+        $_SESSION['user_id']    = $admin['admin_id'];
+        $_SESSION['user_type']  = "Admin";
+        $_SESSION['user_name']  = $admin['name'] ?? "Administrator";
         $_SESSION['login_time'] = time();
-        setcookie("logged_in", "1", time()+300, "/");
+
+        setcookie("logged_in", "1", time() + 300, "/");
         header("Location: ../views/admin/adminDashboard.php");
         exit;
     }
 
-    //Normal user login
+    // --- Normal user login ---
     $user = $model->findUserById($userId); // get user by ID
     if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['user_id']   = $user['user_id'];
-        $_SESSION['user_type'] = strtolower($user['user_type']);
-        $_SESSION['login_time'] = time();
-        setcookie("logged_in", "1", time()+300, "/");
+        $_SESSION['user_id']     = $user['user_id'];
+        $_SESSION['user_type']   = strtolower($user['user_type']);
+        $_SESSION['user_name']   = $user['name'];
+        $_SESSION['user_email']  = $user['email'];
+        $_SESSION['user_phone']  = $user['phone'];
+        $_SESSION['user_address']= $user['address'];
+        $_SESSION['user_nid']    = $user['nid'];
+        $_SESSION['login_time']  = time();
+
+        setcookie("logged_in", "1", time() + 300, "/");
 
         if ($_SESSION['user_type'] === "farmer") {
             header("Location: ../views/farmer/farmerDashboard.php");
@@ -35,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit;
     }
 
-    //Invalid credentials
+    // --- Invalid credentials ---
     $_SESSION['login-error_message'] = "Invalid Log In, Please Enter Valid Credential";
     header("Location: ../views/login.php");
     exit;
