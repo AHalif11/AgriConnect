@@ -1,26 +1,31 @@
-<h2>Profile Details</h2>
+<h2 class="section-title">Profile Details</h2>
 
 <?php if(isset($_GET['success'])): ?>
-    <p style="color:green;">Profile updated successfully!</p>
+  <p class="success-msg">Profile updated successfully!</p>
 <?php endif; ?>
 
-<form method="POST" action="farmerDashboard.php?section=profile">
+<form method="POST" action="farmerDashboard.php?section=profile" class="profile-form">
   <input type="hidden" name="action" value="update_profile">
 
-  <label>Name:</label>
-  <input type="text" name="name" value="<?php echo htmlspecialchars($user['name']); ?>"><br><br>
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input id="name" type="text" name="name" value="<?php echo htmlspecialchars($user['name']); ?>">
+  </div>
 
-  <label>Email:</label>
-  <input type="email" name="email" readonly value="<?php echo htmlspecialchars($user['email']); ?>"><br><br>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input id="email" type="email" name="email" readonly value="<?php echo htmlspecialchars($user['email']); ?>">
+  </div>
 
-  <label>Phone:</label>
-  <input type="text" name="phone" value="<?php echo htmlspecialchars($user['phone']); ?>"><br><br>
+  <div class="form-group">
+    <label for="phone">Phone:</label>
+    <input id="phone" type="text" name="phone" value="<?php echo htmlspecialchars($user['phone']); ?>">
+  </div>
 
-  <label>Address:</label>
-  <textarea name="address"><?php echo htmlspecialchars($user['address']); ?></textarea><br><br>
+  <div class="form-group">
+    <label for="address">Address:</label>
+    <textarea id="address" name="address"><?php echo htmlspecialchars($user['address']); ?></textarea>
+  </div>
 
-  <!-- <label>NID (optional):</label>
-  <input type="text" name="nid" value="<?php echo htmlspecialchars($user['nid']); ?>"><br><br> -->
-
-  <button type="submit">Update</button>
+  <button type="submit" class="btn-submit">Update</button>
 </form>

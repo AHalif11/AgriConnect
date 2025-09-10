@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'farmer') {
+if (!isset($_SESSION['user_id'], $_COOKIE['logged_in']) || $_SESSION['user_type'] !== 'farmer') {
     header("Location: ../../views/login.php");
     exit;
 }
@@ -19,12 +19,13 @@ $controller = new FarmerController();
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 </head>
 <body>
-  <header style="display:none;">
-    <nav>
+  <!-- Header -->
+  <header class="main-header">
+    <nav class="navbar">
       <div class="nav-logo">
         <h3 class="nav-title"><span>Agri</span>Connect</h3>
       </div>
-      <ul>
+      <ul class="nav-links">
         <li><a href="../../index.php">Home</a></li>
         <li><a href="farmerDashboard.php">Dashboard</a></li>
         <li><a href="../../logout.php">Logout</a></li>
@@ -32,23 +33,24 @@ $controller = new FarmerController();
     </nav>
   </header>
 
-  <main style="display: flex;">
+  <!-- Main -->
+  <main class="dashboard-container">
     <!-- Sidebar -->
-    <aside style="width: 20%; background:#f1f1f1; padding:20px;">
-      <ul>
-        <li><a href="?section=profile">Profile Details</a></li>
-        <li><a href="?section=products">Product Management</a></li>
-        <li><a href="?section=orders">Order Management</a></li>
-        <li><a href="?section=payments">Payments</a></li>
-        <li><a href="?section=feedback">Customer Feedback</a></li>
+    <aside class="sidebar">
+      <ul class="sidebar-menu">
+        <li><a href="?section=profile" class="<?php echo ($section==='profile')?'active':''; ?>"><i class="fa fa-user"></i> Profile Details</a></li>
+        <li><a href="?section=products" class="<?php echo ($section==='products')?'active':''; ?>"><i class="fa fa-box"></i> Product Management</a></li>
+        <li><a href="?section=orders" class="<?php echo ($section==='orders')?'active':''; ?>"><i class="fa fa-shopping-cart"></i> Order Management</a></li>
+        <li><a href="?section=payments" class="<?php echo ($section==='payments')?'active':''; ?>"><i class="fa fa-wallet"></i> Payments</a></li>
+        <li><a href="?section=feedback" class="<?php echo ($section==='feedback')?'active':''; ?>"><i class="fa fa-comments"></i> Customer Feedback</a></li>
       </ul>
     </aside>
 
     <!-- Main Content -->
-    <section style="width:80%; padding:20px;">
+    <section class="content-area">
       <?php
-        $controller->handleActions(); // Handle POST/GET actions first
-        $controller->loadSection($section); // Load the section content
+        $controller->handleActions();
+        $controller->loadSection($section);
       ?>
     </section>
   </main>
