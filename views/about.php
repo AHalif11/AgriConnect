@@ -25,7 +25,7 @@ p {
 <nav  style="z-index:1000; position: fixed; margin-top:-100px;">
     <div class="nav-logo"><h3 class="nav-title"><span>Agri</span>Connect</h3></div>
     <ul>
-        <li><a href="../../index.php">Home</a></li>
+        <!-- <li><a href="#">Home</a></li> -->
     </ul>
 </nav>
 </header>
