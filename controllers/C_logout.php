@@ -1,12 +1,13 @@
 <?php
 session_start();
 
-// Clear all session data
 session_unset();
 session_destroy();
 
-// Delete the "logged_in" cookie
+// Kill 5-min cookie
 setcookie("logged_in", "", time() - 3600, "/");
 
+// Back to home
 header("Location: ../index.php");
 exit;
+?>

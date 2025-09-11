@@ -55,5 +55,7 @@ class UserModel {
         mysqli_stmt_bind_param($stmt, "ssssss", $name, $email, $phone, $address, $nid, $userId);
         return mysqli_stmt_execute($stmt);
     }
+    
+
 }
 ?>

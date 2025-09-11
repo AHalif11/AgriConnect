@@ -66,6 +66,8 @@ class OrderModel {
         mysqli_stmt_bind_param($stmt, "ss", $status, $orderId);
         return mysqli_stmt_execute($stmt);
     }
+
+    
 }
 
 ?>

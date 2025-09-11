@@ -670,12 +670,6 @@ nav .nav-logo span {
   flex: 1;
   padding: 30px;
 }
-.section-title {
-  margin-bottom: 20px;
-  font-size: 20px;
-  color: #2e7d32;
-  text-transform: uppercase;
-}
 
 /* Messages */
 .success-msg {
@@ -987,4 +981,113 @@ nav .nav-logo span {
 }
 .star.filled {
   color: #fbc02d;
+}
+
+/* Profile Page Layout */
+#profile-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Sidebar */
+#profile-sidebar {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.btn-section {
+  padding: 10px 15px;
+  border: none;
+  background: #2e7d32;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.btn-section:hover,
+.btn-section.active {
+  background: #1b5e20;
+}
+
+/* Right Content */
+#profile-content {
+  flex: 1;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Sections */
+.profile-section {
+  display: block;
+}
+
+.section-title {
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  color: #2e7d32;
+}
+
+/* Form Fields */
+.profile-form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+.inp-field {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+/* Buttons */
+.btn-submit,
+.btn-view {
+  background: #2e7d32;
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: 0.3s;
+  text-decoration: none;
+}
+.btn-submit:hover,
+.btn-view:hover {
+  background: #1b5e20;
+}
+
+/* Orders Table */
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.orders-table th,
+.orders-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+.orders-table th {
+  background: #2e7d32;
+  color: #fff;
+}
+.orders-table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+/* No data text */
+.no-data {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  margin-top: 20px;
 }

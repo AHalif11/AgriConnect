@@ -1,7 +1,10 @@
 <?php
 session_start();
-require_once "../models/db.php";
-require_once "../models/UserModel.php";
+// require_once "../models/db.php";
+// require_once "../models/UserModel.php";
+require_once __DIR__ . "/../models/db.php";
+require_once __DIR__ . "/../models/UserModel.php";
+// require_once __DIR__ . "/../models/OrderModel.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $userId   = trim($_POST['userId'] ?? '');
@@ -16,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION['user_name']  = $admin['name'] ?? "Administrator";
         $_SESSION['login_time'] = time();
 
-        setcookie("logged_in", "1", time() + 300, "/");
+        setcookie("logged_in", "1", time() + 3600, "/");
         header("Location: ../views/admin/adminDashboard.php");
         exit;
     }
@@ -33,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION['user_nid']    = $user['nid'];
         $_SESSION['login_time']  = time();
 
-        setcookie("logged_in", "1", time() + 300, "/");
+        setcookie("logged_in", "1", time() + 3600, "/");
 
         if ($_SESSION['user_type'] === "farmer") {
             header("Location: ../views/farmer/farmerDashboard.php");

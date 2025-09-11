@@ -14,7 +14,7 @@ if (!isset($_SESSION['user_id']) || !isset($_COOKIE['logged_in'])) {
     <link rel="stylesheet" href="../../public/css/style.css?v=<?php echo time(); ?>">
     <link rel="icon" href="images/logo1.png">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" crossorigin="anonymous" />
 
     <title>Consumer Dashboard</title>
 </head>
@@ -31,9 +31,9 @@ if (!isset($_SESSION['user_id']) || !isset($_COOKIE['logged_in'])) {
           <li><a href="about.php">About</a></li>
           <li><a href="contact.php">Contact</a></li>
           <li>
-            <a href="profile.php">
-        <?php echo htmlspecialchars($_SESSION['user_name']); ?>
-    </a>
+            <a href="consumerProfile.php">
+                <?php echo htmlspecialchars($_SESSION['user_name']); ?>
+            </a>
           </li>
         </ul>
       </nav>

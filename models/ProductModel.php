@@ -21,13 +21,31 @@ class ProductModel {
         return "P" . str_pad($newId, 3, "0", STR_PAD_LEFT);
     }
 
+    // public function createProduct($productId, $farmerId, $name, $description, $price, $stock, $image, $category) {
+    //     $sql = "INSERT INTO Products (product_id, farmer_id, name, description, price, stock, image, category)
+    //             VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    //     $stmt = mysqli_prepare($this->conn, $sql);
+    //     mysqli_stmt_bind_param($stmt, "sssdisss", $productId, $farmerId, $name, $description, $price, $stock, $image, $category);
+    //     return mysqli_stmt_execute($stmt);
+    // }
     public function createProduct($productId, $farmerId, $name, $description, $price, $stock, $image, $category) {
-        $sql = "INSERT INTO Products (product_id, farmer_id, name, description, price, stock, image, category)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        $stmt = mysqli_prepare($this->conn, $sql);
-        mysqli_stmt_bind_param($stmt, "sssdisss", $productId, $farmerId, $name, $description, $price, $stock, $image, $category);
-        return mysqli_stmt_execute($stmt);
-    }
+    $sql = "INSERT INTO Products (product_id, farmer_id, name, description, price, stock, image, category)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt = mysqli_prepare($this->conn, $sql);
+    mysqli_stmt_bind_param($stmt, "ssssdiss", 
+        $productId,    
+        $farmerId,     
+        $name,         
+        $description,  
+        $price,        
+        $stock,        
+        $image,        
+        $category      
+    );
+
+    return mysqli_stmt_execute($stmt);
+}
+
 
     public function deleteProduct($productId) {
         $sql = "DELETE FROM Products WHERE product_id=?";
