@@ -1,9 +1,14 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id']) || !isset($_COOKIE['logged_in'])) {
-    header("Location: ../../views/login.php");
-    exit;
-}
+// if (!isset($_SESSION['user_id']) || !isset($_COOKIE['logged_in'])) {
+//     header("Location: ../../views/login.php");
+//     exit;
+// }
+require_once "../../models/db.php";
+require_once "../../controllers/ConsumerController.php";
+$controller = new ConsumerController($conn);
+$products = $controller->getProducts();
+
 ?>
 
 <!DOCTYPE html>
@@ -26,10 +31,8 @@ if (!isset($_SESSION['user_id']) || !isset($_COOKIE['logged_in'])) {
           <h3 class="nav-title"><span>Agri</span>Connect</h3>
         </div>
         <ul>
-          <li><a href="../../index.php"><span>Home</span></a></li>
-          <li><a href="#">Product</a></li>
-          <li><a href="about.php">About</a></li>
-          <li><a href="contact.php">Contact</a></li>
+          <li><a href="consumerProfile.php?section=cart">cart</a></li>
+          <li><a href="">Products</a></li>
           <li>
             <a href="consumerProfile.php">
                 <?php echo htmlspecialchars($_SESSION['user_name']); ?>
@@ -106,6 +109,19 @@ if (!isset($_SESSION['user_id']) || !isset($_COOKIE['logged_in'])) {
         </div> 
       </div>
       <!-- consumer dashboard featured end -->
+      <section id="product-section">
+        <h1 style="margin: 30px 0;text-transform: uppercase;">popular Products</h1>
+          <div id="products" class="dashboard-products">
+            <?php foreach ($products as $product): ?>
+                <div class="product-card">
+                    <img src="../../uploads/<?php echo htmlspecialchars($product['image']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
+                    <h3><?php echo htmlspecialchars($product['name']); ?></h3>
+                    <p class="price"><?php echo number_format($product['price'],2); ?> TK</p>
+                    <a href="productDetails.php?id=<?php echo $product['product_id']; ?>" class="view-btn">View Details</a>
+                </div>
+            <?php endforeach; ?>
+          </div>
+      </section>
 
        <section>
         <div id="discount-banner">

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="public/css/style.css?v=<?php echo time(); ?>">
     <link rel="icon" href="public/images/logo1.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>AgriConnect</title>
 </head>
 <body>
@@ -15,7 +16,7 @@
             <h3 class="nav-title"><span>Agri</span>Connect</h3>
         </div>
         <ul>
-            <li><a href=""><span>Home</span></a></li>
+            <li><a href="views/consumer/consumerDashboard.php"><span>Buy</span></a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="views/register.php">Register</a></li>
@@ -61,5 +62,6 @@
         </div>
       </div>
     </footer>
+
 </body>
 </html>

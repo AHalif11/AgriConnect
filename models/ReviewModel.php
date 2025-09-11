@@ -25,5 +25,45 @@ class ReviewModel {
         }
         return $reviews;
     }
+
+    // hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+
+    public function getReviewsForProduct($productId) {
+        $sql = "SELECT r.*, u.name AS customer_name
+                FROM Reviews r
+                JOIN Users u ON r.user_id = u.user_id
+                WHERE r.product_id = ?
+                ORDER BY r.created_at DESC";
+
+        $stmt = mysqli_prepare($this->conn, $sql);
+        mysqli_stmt_bind_param($stmt, "s", $productId);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+        $reviews = [];
+        while ($row = mysqli_fetch_assoc($result)) {
+            $reviews[] = $row;
+        }
+        return $reviews;
+    }
+
+    public function addReview($productId, $userId, $rating, $comment) {
+        // Generate review_id like R001
+        $sql = "SELECT review_id FROM Reviews ORDER BY review_id DESC LIMIT 1";
+        $result = mysqli_query($this->conn, $sql);
+        if ($row = mysqli_fetch_assoc($result)) {
+            $lastId = intval(substr($row['review_id'], 1));
+            $newId = $lastId + 1;
+        } else {
+            $newId = 1;
+        }
+        $reviewId = "R" . str_pad($newId, 3, "0", STR_PAD_LEFT);
+
+        $sqlInsert = "INSERT INTO Reviews (review_id, product_id, user_id, rating, comment) VALUES (?, ?, ?, ?, ?)";
+        $stmt = mysqli_prepare($this->conn, $sqlInsert);
+        mysqli_stmt_bind_param($stmt, "sssis", $reviewId, $productId, $userId, $rating, $comment);
+        return mysqli_stmt_execute($stmt);
+    }
+
 }
 ?>

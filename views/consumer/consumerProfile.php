@@ -1,7 +1,7 @@
 <?php
 // views/consumer/consumerProfile.php
 session_start();
-if (!isset($_SESSION['user_id']) || !isset($_COOKIE['logged_in'])) {
+if (!isset($_SESSION['user_id'], $_COOKIE['logged_in']) || $_SESSION['user_type'] !== 'consumer') {
     header("Location: ../../views/login.php");
     exit;
 }

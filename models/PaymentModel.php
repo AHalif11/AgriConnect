@@ -28,5 +28,26 @@ class PaymentModel {
     return $payments;
 }
 
+    private function generatePaymentId() {
+        $sql = "SELECT payment_id FROM Payments ORDER BY payment_id DESC LIMIT 1";
+        $result = mysqli_query($this->conn, $sql);
+        if ($row = mysqli_fetch_assoc($result)) {
+            $lastId = intval(substr($row['payment_id'], 2));
+            $newId = $lastId + 1;
+        } else {
+            $newId = 1;
+        }
+        return "PM" . str_pad($newId, 3, "0", STR_PAD_LEFT);
+    }
+
+    public function createPayment($orderId, $amount, $method, $status = 'pending') {
+        $paymentId = $this->generatePaymentId();
+        $sql = "INSERT INTO Payments (payment_id, order_id, amount, method, status) VALUES (?, ?, ?, ?, ?)";
+        $stmt = mysqli_prepare($this->conn, $sql);
+        mysqli_stmt_bind_param($stmt, "ssdss", $paymentId, $orderId, $amount, $method, $status);
+        mysqli_stmt_execute($stmt);
+        return $paymentId;
+    }
+
 }
 ?>

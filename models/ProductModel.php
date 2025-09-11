@@ -82,5 +82,34 @@ class ProductModel {
         }
         return $products;
     }
+
+    // newwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+    public function getAllProducts() {
+        $sql = "SELECT p.*, u.name AS farmer_name 
+                FROM Products p
+                JOIN Users u ON p.farmer_id = u.user_id
+                ORDER BY p.created_at DESC";
+        $result = mysqli_query($this->conn, $sql);
+
+        $products = [];
+        while ($row = mysqli_fetch_assoc($result)) {
+            $products[] = $row;
+        }
+        return $products;
+    }
+
+    //  Get single product details
+    public function getProductById($productId) {
+        $sql = "SELECT p.*, u.name AS farmer_name 
+                FROM Products p 
+                JOIN Users u ON p.farmer_id = u.user_id
+                WHERE p.product_id = ?";
+        $stmt = mysqli_prepare($this->conn, $sql);
+        mysqli_stmt_bind_param($stmt, "s", $productId);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+        return mysqli_fetch_assoc($result);
+    }
 }
 ?>
