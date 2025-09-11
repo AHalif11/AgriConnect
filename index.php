@@ -17,7 +17,7 @@
         </div>
         <ul>
             <li><a href="views/consumer/consumerDashboard.php"><span>Buy</span></a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="views/about.php">About</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="views/register.php">Register</a></li>
         </ul>
