@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username   = "root";
 $password   = "";
-$dbname     = "demowork";
+$dbname     = "agriconnect";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
