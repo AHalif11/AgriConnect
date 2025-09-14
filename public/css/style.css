@@ -15,6 +15,7 @@ nav {
   padding: 27px 145px;
   position: fixed;
   width: 100%;
+  z-index: 1000;
 }
 nav > ul {
   display: flex;

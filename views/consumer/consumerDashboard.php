@@ -110,7 +110,8 @@ $products = $controller->getProducts();
       </div>
       <!-- consumer dashboard featured end -->
       <section id="product-section">
-        <h1 style="margin: 30px 0;text-transform: uppercase; text-align:center; background-color:aquamarine; border-radius:10px;">popular Products</h1>
+        <!-- style="margin: 30px 0;text-transform: uppercase; text-align:center; background-color:aquamarine; border-radius:10px;" -->
+        <h1 style="margin: 30px 0;text-transform: uppercase;">popular Products</h1>
           <div id="products" class="dashboard-products">
             <?php foreach ($products as $product): ?>
                 <div class="product-card">
