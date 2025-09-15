@@ -22,6 +22,25 @@ $products = $controller->getProducts();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" crossorigin="anonymous" />
 
     <title>Consumer Dashboard</title>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const searchInput = document.getElementById("searchInput");
+
+  searchInput.addEventListener("keyup", function() {
+    let query = this.value;
+
+    // AJAX request
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", "searchProducts.php?q=" + encodeURIComponent(query), true);
+    xhr.onreadystatechange = function() {
+      if (this.readyState === 4 && this.status === 200) {
+        document.getElementById("products").innerHTML = this.responseText;
+      }
+    };
+    xhr.send();
+  });
+});
+</script>
 </head>
 <body>
   <!-- header start -->
@@ -108,10 +127,14 @@ $products = $controller->getProducts();
           </div>
         </div> 
       </div>
+      <div style="text-align:center; margin: 20px 0;">
+        <input type="text" id="searchInput" placeholder="Search products..." 
+         style="width:70%; padding:15px; border-radius:9px; border:1px solid #1f0e0eff; font-size:16px;">
+      </div>
+
       <!-- consumer dashboard featured end -->
       <section id="product-section">
-        <!-- style="margin: 30px 0;text-transform: uppercase; text-align:center; background-color:aquamarine; border-radius:10px;" -->
-        <h1 style="margin: 30px 0;text-transform: uppercase;">popular Products</h1>
+        <h1 style="margin: 30px 0;text-transform: uppercase; text-align:center; background-color:aquamarine; border-radius:10px; padding:10px;">popular Products</h1>
           <div id="products" class="dashboard-products">
             <?php foreach ($products as $product): ?>
                 <div class="product-card">
