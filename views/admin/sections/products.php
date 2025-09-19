@@ -42,7 +42,7 @@
             <button type="submit" class="btn-delete">Remove</button>
           </form>
 
-          <button onclick="document.getElementById('stock-<?php echo $p['product_id']; ?>').style.display='block'">Update Stock</button>
+          <button class="btn-edit" onclick="document.getElementById('stock-<?php echo $p['product_id']; ?>').style.display='block'">Update Stock</button>
 
           <div id="stock-<?php echo $p['product_id']; ?>" class="modal" style="display:none;">
             <form method="POST" action="adminDashboard.php?section=products">
