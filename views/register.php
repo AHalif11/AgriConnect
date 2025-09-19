@@ -27,7 +27,7 @@ session_start();
 </header>
 
 <main>
-    <div id="registration-hero" style="background:rgba(197, 244, 193, 1)">
+    <div id="registration-hero" style="background:rgba(197, 244, 193, 1);padding: 130px;">
         <!-- Server Messages -->
         <div id="server-error-message" style="<?php echo (isset($_SESSION['error_message']) || isset($_SESSION['success_message'])) ? '' : 'display:none;'; ?>">
             <?php
@@ -51,23 +51,23 @@ session_start();
                     <form action="../controllers/C_register.php" method="post" onsubmit="return validateForm()">
                         <label for="userId">User ID</label><br>
                         <input type="text" class="inp" id="userId" name="userId" placeholder="Hello123" required><br>
-                        <div id="userId-error"></div>
+                        <div id="userId-error" class="mbT"></div>
 
                         <label for="name">Name</label><br>
                         <input type="text" class="inp" id="name" name="name" placeholder="Mr. X" required><br>
-                        <div id="name-error"></div>
+                        <div id="name-error" class="mbT"></div>
 
                         <label for="email">E-Mail</label><br>
                         <input type="email" class="inp" id="email" name="email" placeholder="abc@example.com" required><br>
-                        <div id="email-error"></div>
+                        <div id="email-error" class="mbT"></div>
 
                         <label for="phone">Phone Number</label><br>
                         <input type="text" class="inp" id="phone" name="phone" placeholder="01711111111" required><br>
-                        <div id="phone-error"></div>
+                        <div id="phone-error" class="mbT"></div>
 
                         <label for="password">Password</label><br>
                         <input type="password" class="inp" id="password" name="password" required><br>
-                        <div id="password-error"></div>
+                        <div id="password-error" class="mbT"></div>
 
                         <label for="userType">User Type</label><br>
                         <select name="userType" class="inp" id="userType" onchange="toggleNid()">
@@ -75,23 +75,27 @@ session_start();
                             <option value="consumer">Consumer</option>
                             <option value="farmer">Farmer</option>
                         </select><br>
-                        <div id="userType-error"></div>
+                        <div id="userType-error" class="mbT"></div>
 
                         <label for="address">Address</label><br>
                         <textarea name="address" class="address-inp" id="address" required></textarea><br>
-                        <div id="address-error"></div>
+                        <div id="address-error" class="mbT"></div>
 
                         <div id="nidField" style="display: none;">
                             <label for="nid">NID Number</label><br>
                             <input type="text" class="inp" id="nid" name="nid">
                         </div>
-                        <div id="nid-error"></div>
+                        <div id="nid-error" class="mbT"></div>
 
                         <button type="submit" class="reg-btn">Register</button>
                     </form>
                 </div>
-                <label class="have-acc" for="">Have an Account?</label>
-                <a href="login.php" style="font-size: 20px; margin-left: 5px;">Sign In</a>
+                <!-- <label class="have-acc" for="">Have an Account?</label>
+                <a href="login.php" style="font-size: 20px; margin-left: 5px;">Sign In</a> -->
+                <div class="account-wrap">
+                      <span class="have-acc">Have an Account?</span>
+                      <a href="login.php" class="GoRegBtn">Sign In</a>
+                    </div>
             </div>
 
             <!-- Registration Description -->

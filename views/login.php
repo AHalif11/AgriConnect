@@ -51,8 +51,10 @@
                             <button type="submit" class="login-btn">LOG IN</button> 
                         </form>
                     </div>
-                    <label class="have-acc" for="">Don't have an Account?</label>
-                    <a href="register.php" class="GoRegBtn">Sign Up</a>
+                    <div class="account-wrap">
+                      <span class="have-acc">Don't have an Account?</span>
+                      <a href="register.php" class="GoRegBtn">Sign Up</a>
+                    </div>
                 </div>
                 <div id="login-description">
                     <div id="login-description-header">
