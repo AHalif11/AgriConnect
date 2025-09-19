@@ -111,5 +111,52 @@ class ProductModel {
 
         return mysqli_fetch_assoc($result);
     }
+
+    // Admin search across categories and keywords
+    public function searchProductsAdmin($category, $keyword) {
+        $sql = "SELECT p.*, u.name AS farmer_name
+                FROM Products p
+                JOIN Users u ON p.farmer_id = u.user_id
+                WHERE 1=1";
+
+        $params = [];
+        $types = '';
+
+        if (!empty($category)) {
+            $sql .= " AND p.category = ?";
+            $params[] = $category;
+            $types .= 's';
+        }
+
+        if (!empty($keyword)) {
+            $sql .= " AND p.name LIKE ?";
+            $params[] = "%" . $keyword . "%";
+            $types .= 's';
+        }
+
+        $stmt = mysqli_prepare($this->conn, $sql);
+
+        if (!empty($params)) {
+            mysqli_stmt_bind_param($stmt, $types, ...$params);
+        }
+
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+        $products = [];
+        while ($row = mysqli_fetch_assoc($result)) {
+            $products[] = $row;
+        }
+        return $products;
+    }
+    public function overrideStock($productId, $stock) {
+        $sql = "UPDATE Products SET stock = ? WHERE product_id = ?";
+        $stmt = mysqli_prepare($this->conn, $sql);
+        mysqli_stmt_bind_param($stmt, "is", $stock, $productId);
+        return mysqli_stmt_execute($stmt);
+    }
+
+
+    
 }
 ?>

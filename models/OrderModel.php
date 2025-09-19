@@ -6,8 +6,8 @@ class OrderModel {
     }
 
     // Get all orders made by a user
-    public function getOrdersForUser($userId) {
-        $sql = "SELECT * FROM Orders WHERE user_id=?";
+    public function getOrdersByUser($userId) {
+        $sql = "SELECT * FROM Orders WHERE user_id=? ORDER BY order_date DESC";
         $stmt = mysqli_prepare($this->conn, $sql);
         mysqli_stmt_bind_param($stmt, "s", $userId);
         mysqli_stmt_execute($stmt);
@@ -19,54 +19,6 @@ class OrderModel {
         }
         return $orders;
     }
-
-    // Get all orders where products belong to a farmer
-    public function getOrdersForFarmer($farmerId) {
-        $sql = "SELECT o.* 
-                FROM Orders o
-                JOIN Order_Items oi ON o.order_id = oi.order_id
-                JOIN Products p ON oi.product_id = p.product_id
-                WHERE p.farmer_id = ?
-                GROUP BY o.order_id
-                ORDER BY o.order_date DESC";
-        $stmt = mysqli_prepare($this->conn, $sql);
-        mysqli_stmt_bind_param($stmt, "s", $farmerId);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
-
-        $orders = [];
-        while ($row = mysqli_fetch_assoc($result)) {
-            $orders[] = $row;
-        }
-        return $orders;
-    }
-
-    // Get order items for a given order
-    public function getOrderItems($orderId) {
-        $sql = "SELECT oi.*, p.name AS product_name
-                FROM Order_Items oi
-                JOIN Products p ON oi.product_id = p.product_id
-                WHERE oi.order_id = ?";
-        $stmt = mysqli_prepare($this->conn, $sql);
-        mysqli_stmt_bind_param($stmt, "s", $orderId);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
-
-        $items = [];
-        while ($row = mysqli_fetch_assoc($result)) {
-            $items[] = $row;
-        }
-        return $items;
-    }
-
-    // Update order status
-    public function updateOrderStatus($orderId, $status) {
-        $sql = "UPDATE Orders SET status=? WHERE order_id=?";
-        $stmt = mysqli_prepare($this->conn, $sql);
-        mysqli_stmt_bind_param($stmt, "ss", $status, $orderId);
-        return mysqli_stmt_execute($stmt);
-    }
-
     private function generateOrderId() {
         $sql = "SELECT order_id FROM Orders ORDER BY order_id DESC LIMIT 1";
         $result = mysqli_query($this->conn, $sql);
@@ -113,7 +65,124 @@ class OrderModel {
         return $orderId;
     }
 
+
+    public function getOrdersForFarmer($farmerId) {
+        $sql = "SELECT o.* 
+                FROM Orders o
+                JOIN Order_Items oi ON o.order_id = oi.order_id
+                JOIN Products p ON oi.product_id = p.product_id
+                WHERE p.farmer_id = ?
+                GROUP BY o.order_id
+                ORDER BY o.order_date DESC";
+        $stmt = mysqli_prepare($this->conn, $sql);
+        mysqli_stmt_bind_param($stmt, "s", $farmerId);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+        $orders = [];
+        while ($row = mysqli_fetch_assoc($result)) {
+            $orders[] = $row;
+        }
+        return $orders;
+    }
+
+    public function getOrderItems($orderId) {
+        $sql = "SELECT oi.*, p.name AS product_name
+                FROM Order_Items oi
+                JOIN Products p ON oi.product_id = p.product_id
+                WHERE oi.order_id = ?";
+        $stmt = mysqli_prepare($this->conn, $sql);
+        mysqli_stmt_bind_param($stmt, "s", $orderId);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+        $items = [];
+        while ($row = mysqli_fetch_assoc($result)) {
+            $items[] = $row;
+        }
+        return $items;
+    }
+
+    public function updateOrderStatus($orderId, $status) {
+        $sql = "UPDATE Orders SET status=? WHERE order_id=?";
+        $stmt = mysqli_prepare($this->conn, $sql);
+        mysqli_stmt_bind_param($stmt, "ss", $status, $orderId);
+        return mysqli_stmt_execute($stmt);
+    }
+
+    // CART METHODS
+    public function getCartByUser($userId) {
+        $sql = "SELECT c.*, p.name AS product_name 
+                FROM Cart c 
+                JOIN Products p ON c.product_id = p.product_id 
+                WHERE c.user_id = ?";
+        $stmt = mysqli_prepare($this->conn, $sql);
+        mysqli_stmt_bind_param($stmt, "s", $userId);
+        mysqli_stmt_execute($stmt);
+        $res = mysqli_stmt_get_result($stmt);
+        $rows = [];
+        while($r = mysqli_fetch_assoc($res)) $rows[] = $r;
+        return $rows;
+    }
     
+
+    // public function deleteCartItem($cartId) {
+    //     $sql = "DELETE FROM Cart WHERE cart_id=?";
+    //     $stmt = mysqli_prepare($this->conn, $sql);
+    //     mysqli_stmt_bind_param($stmt, "s", $cartId);
+    //     return mysqli_stmt_execute($stmt);
+    // }
+
+    // public function updateCartItem($cartId, $quantity) {
+    //     $sql = "UPDATE Cart SET quantity=? WHERE cart_id=?";
+    //     $stmt = mysqli_prepare($this->conn, $sql);
+    //     mysqli_stmt_bind_param($stmt, "is", $quantity, $cartId);
+    //     return mysqli_stmt_execute($stmt);
+    // }
+
+    // All orders
+    public function getAllOrders() {
+        $sql = "SELECT o.*, u.name AS customer_name 
+                FROM Orders o 
+                JOIN Users u ON o.user_id = u.user_id 
+                ORDER BY o.order_date DESC";
+        $result = mysqli_query($this->conn, $sql);
+        $rows = [];
+        while($r = mysqli_fetch_assoc($result)) $rows[] = $r;
+        return $rows;
+    }
+    // Update quantity of a cart item
+public function updateCartQuantity($cartId, $quantity) {
+    $sql = "UPDATE Cart SET quantity=? WHERE cart_id=?";
+    $stmt = mysqli_prepare($this->conn, $sql);
+    mysqli_stmt_bind_param($stmt, "is", $quantity, $cartId);
+    return mysqli_stmt_execute($stmt);
 }
 
+// Delete a cart item
+public function deleteCartItem($cartId) {
+    $sql = "DELETE FROM Cart WHERE cart_id=?";
+    $stmt = mysqli_prepare($this->conn, $sql);
+    mysqli_stmt_bind_param($stmt, "s", $cartId);
+    return mysqli_stmt_execute($stmt);
+}
+public function getOrdersForUser($userId) {
+    $sql = "SELECT o.*, u.name AS customer_name 
+            FROM Orders o
+            JOIN Users u ON o.user_id = u.user_id
+            WHERE o.user_id = ?
+            ORDER BY o.order_date DESC";
+    $stmt = mysqli_prepare($this->conn, $sql);
+    mysqli_stmt_bind_param($stmt, "s", $userId);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    $orders = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $orders[] = $row;
+    }
+    return $orders;
+}
+
+}
 ?>
