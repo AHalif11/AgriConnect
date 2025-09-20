@@ -54,9 +54,16 @@ document.addEventListener("DOMContentLoaded", function() {
           <li><a href="">Products</a></li>
           <li>
             <a href="consumerProfile.php">
-                <?php echo htmlspecialchars($_SESSION['user_name']); ?>
+                <?php 
+                  if (isset($_SESSION['user_name']) && !empty($_SESSION['user_name'])) {
+                      echo htmlspecialchars($_SESSION['user_name']);
+                  } else {
+                      echo "Guest";
+                  }
+                ?>
             </a>
           </li>
+
         </ul>
       </nav>
     </header>
