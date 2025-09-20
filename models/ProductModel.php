@@ -156,6 +156,41 @@ class ProductModel {
         return mysqli_stmt_execute($stmt);
     }
 
+    public function filterProducts($category = '', $minPrice = '', $maxPrice = '') {
+        $sql = "SELECT p.*, u.name AS farmer_name 
+                FROM Products p
+                JOIN Users u ON p.farmer_id = u.user_id
+                WHERE 1=1";
+
+        $params = [];
+        $types = '';
+
+        if(!empty($category) && in_array($category, ['vegetable','fruit','grain','dairy','meat','fish','grocery'])) {
+            $sql .= " AND p.category = ?";
+            $params[] = $category;
+            $types .= 's';
+        }
+        if($minPrice !== '') {
+            $sql .= " AND p.price >= ?";
+            $params[] = $minPrice;
+            $types .= 'd';
+        }
+        if($maxPrice !== '') {
+            $sql .= " AND p.price <= ?";
+            $params[] = $maxPrice;
+            $types .= 'd';
+        }
+
+        $sql .= " ORDER BY p.created_at DESC";
+        $stmt = mysqli_prepare($this->conn, $sql);
+        if(!empty($params)) mysqli_stmt_bind_param($stmt, $types, ...$params);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+        $products = [];
+        while($row = mysqli_fetch_assoc($result)) $products[] = $row;
+        return $products;
+    }
 
     
 }

@@ -106,6 +106,15 @@ class ConsumerController {
     public function getProducts() {
         return $this->productModel->getAllProducts();
     }
+    public function getFilteredProducts($filters = []) {
+        if (!empty($filters)) {
+            $category = $filters['category'] ?? '';
+            $minPrice = $filters['minPrice'] ?? '';
+            $maxPrice = $filters['maxPrice'] ?? '';
+            return $this->productModel->filterProducts($category, $minPrice, $maxPrice);
+        }
+        return $this->productModel->getAllProducts();
+    }
 
     public function getProductDetails($productId) {
         return $this->productModel->getProductById($productId);

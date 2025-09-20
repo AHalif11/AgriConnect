@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
         <ul>
           <li><a href="consumerProfile.php?section=cart">cart</a></li>
-          <li><a href="">Products</a></li>
+          <li><a href="consumerProducts.php">Products</a></li>
           <li>
             <a href="consumerProfile.php">
                 <?php 
@@ -76,17 +76,17 @@ document.addEventListener("DOMContentLoaded", function() {
               url(../../public/images/bannarBig.png) no-repeat center center; background-size: cover;">
               <div class="banner-left-content">
                 <h1>AgriConnect Hub</h1>
-                <h4>Sale UP TO <span class="off-back">30% OFF</span></h4>
+                <h4>Sales  <span class="off-back">Starts SOON</span></h4>
                 <p>Free Shipping on all your order</p>
-                <button class="shopNow-btn">shop Now  -></button>
+                <a class="shopNow-btn" href="consumerProducts.php">shop Now</a>
               </div>
         </div>
         <div id="banner-right">
           <div id="top" style="background: url(../../public/images/BGTop.png) no-repeat center center; background-size: cover;">
             <div class="banner-top-content">
                 <h4>SUMMER DEALS</h4>
-                <h1>75% OFF</h1>
-                <p>Only Fruits & Vegetables</p>
+                <h1>FRESH PRODUCT</h1>
+                <p>Fruits & Vegetables</p>
             </div>
           </div>
           <div id="bottom" style="background: linear-gradient(rgba(0, 38, 3, 0.8), rgba(0, 38, 3, 0.8)), url('../../public/images/BgBottom.png') no-repeat center center / cover;">
