@@ -41,4 +41,29 @@ class ContactModel {
         return mysqli_stmt_execute($stmt);
     }
 
+    public function addQuery($userId, $guestName, $guestEmail, $guestPhone, $subject, $message) {
+    $sql = "INSERT INTO Contact_Queries 
+            (query_id, user_id, guest_name, guest_email, guest_phone, subject, message) 
+            VALUES (?, ?, ?, ?, ?, ?, ?)";
+    
+    $stmt = mysqli_prepare($this->conn, $sql);
+
+    $queryId = uniqid("QRY_");
+
+    mysqli_stmt_bind_param(
+        $stmt,
+        "sssssss",
+        $queryId,
+        $userId,
+        $guestName,
+        $guestEmail,
+        $guestPhone,
+        $subject,
+        $message
+    );
+
+    return mysqli_stmt_execute($stmt);
+}
+
+
 }

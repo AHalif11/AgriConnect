@@ -19,8 +19,8 @@ session_start();
         </div>
         <ul>
             <li><a href="../index.php"><span>Home</span></a></li>
-            <li><a href="">About</a></li>
-            <li><a href="">Contact</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="contact.php">Contact</a></li>
             <li><a href="login.php">Log In</a></li>
         </ul>
     </nav>

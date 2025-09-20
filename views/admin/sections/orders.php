@@ -66,41 +66,43 @@
 
 <?php if(isset($cart)): ?>
 <h3>User Cart</h3>
-<div class="table-container">
-  <table>
+<div class="cart-container table-container">
+  <table class="cart-table">
     <thead>
-      <tr>
-        <th>Cart ID</th>
-        <th>Product</th>
-        <th>Qty</th>
-        <th>Added At</th>
-        <th>Actions</th>
+      <tr class="cart-header-row">
+        <th class="cart-col-id">Cart ID</th>
+        <th class="cart-col-product">Product</th>
+        <th class="cart-col-qty">Qty</th>
+        <th class="cart-col-date">Added At</th>
+        <th class="cart-col-actions">Actions</th>
       </tr>
     </thead>
     <tbody>
       <?php if(!empty($cart)): foreach($cart as $c): ?>
-        <tr>
-          <td><?php echo $c['cart_id']; ?></td>
-          <td><?php echo htmlspecialchars($c['product_name']); ?></td>
-          <td>
-            <form method="POST" action="adminDashboard.php?section=orders" style="display:inline;">
+        <tr class="cart-row">
+          <td class="cart-id"><?php echo $c['cart_id']; ?></td>
+          <td class="cart-product"><?php echo htmlspecialchars($c['product_name']); ?></td>
+          <td class="cart-quantity">
+            <form method="POST" action="adminDashboard.php?section=orders" class="cart-qty-form">
               <input type="hidden" name="action" value="update_cart">
               <input type="hidden" name="cart_id" value="<?php echo $c['cart_id']; ?>">
-              <input type="number" name="quantity" value="<?php echo $c['quantity']; ?>" min="1" style="width:60px;">
-              <button type="submit">Update</button>
+              <input type="number" name="quantity" value="<?php echo $c['quantity']; ?>" min="1" class="cart-qty-input">
+              <button type="submit" class="cart-btn update-btn">Update</button>
             </form>
           </td>
-          <td><?php echo $c['added_at']; ?></td>
-          <td>
-            <form method="POST" action="adminDashboard.php?section=orders" onsubmit="return confirm('Delete this cart item?');" style="display:inline;">
+          <td class="cart-date"><?php echo $c['added_at']; ?></td>
+          <td class="cart-actions">
+            <form method="POST" action="adminDashboard.php?section=orders" onsubmit="return confirm('Delete this cart item?');" class="cart-delete-form">
               <input type="hidden" name="action" value="delete_cart">
               <input type="hidden" name="cart_id" value="<?php echo $c['cart_id']; ?>">
-              <button type="submit">Delete</button>
+              <button type="submit" class="cart-btn delete-btn">Delete</button>
             </form>
           </td>
         </tr>
       <?php endforeach; else: ?>
-        <tr><td colspan="5">No cart items found for this user</td></tr>
+        <tr class="cart-row">
+          <td colspan="5" class="no-cart-data">No cart items found for this user</td>
+        </tr>
       <?php endif; ?>
     </tbody>
   </table>
