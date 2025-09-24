@@ -81,8 +81,5 @@ class CartModel {
         return mysqli_stmt_execute($stmt);
     }
 
-
-
-
 }
 ?>
