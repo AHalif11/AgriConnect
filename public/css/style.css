@@ -2216,3 +2216,119 @@ section {
   font-size: 1rem;
   color: #444;
 }
+
+/* optional */
+.Apage-title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #222;
+}
+
+/* Messages */
+.Amsg {
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+.Aerror {
+  background: #ffe6e6;
+  border: 1px solid #ff4d4d;
+  color: #a60000;
+}
+.Asuccess {
+  background: #e6ffe6;
+  border: 1px solid #33cc33;
+  color: #006600;
+}
+
+/* Form Styles */
+.Aadmin-form {
+  margin-bottom: 25px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.Aform-input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  flex: 1;
+  min-width: 180px;
+  transition: border 0.3s;
+}
+
+.Aform-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.Aform-input.Asmall {
+  width: 180px;
+}
+
+/* Buttons */
+.Abtn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.Abtn-primary {
+  background: #007bff;
+  color: white;
+}
+.Abtn-primary:hover {
+  background: #0056b3;
+}
+.Abtn-danger {
+  background: #dc3545;
+  color: white;
+}
+.Abtn-danger:hover {
+  background: #a71d2a;
+}
+
+/* Table Styles */
+.Aadmin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.Aadmin-table th,
+.Aadmin-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  text-align: left;
+}
+
+.Aadmin-table th {
+  background: #599c77;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.Aadmin-table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+/* Delete Form inside Table */
+.Adelete-form {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}

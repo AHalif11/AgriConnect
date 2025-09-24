@@ -6,6 +6,8 @@ require_once __DIR__ . "/../models/OrderModel.php";
 require_once __DIR__ . "/../models/PaymentModel.php";
 require_once __DIR__ . "/../models/ReviewModel.php";
 require_once __DIR__ . "/../models/ContactModel.php";
+require_once __DIR__ . '/../models/AdminModel.php';
+
 
 class AdminController {
     private $conn;
@@ -15,6 +17,7 @@ class AdminController {
     private $paymentModel;
     private $reviewModel;
     private $contactModel;
+    private $adminModel;
 
     public function __construct() {
         global $conn;
@@ -25,6 +28,7 @@ class AdminController {
         $this->paymentModel = new PaymentModel($this->conn);
         $this->reviewModel  = new ReviewModel($this->conn);
         $this->contactModel = new ContactModel($this->conn);
+        $this->adminModel = new AdminModel($this->conn);
     }
 
     public function handleActions() {
@@ -36,6 +40,41 @@ class AdminController {
             include __DIR__ . "/../views/admin/sections/users.php";
             exit;
         }
+        //add admin
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'add_admin') {
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+
+            $success = $this->adminModel->addAdmin($name, $email, $password);
+
+            if ($success) {
+                header("Location: adminDashboard.php?section=admins&success=1");
+            } else {
+                header("Location: adminDashboard.php?section=admins&error=email_exists");
+            }
+            exit;
+        }
+
+        // --- Delete Admin with super admin password ---
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'delete_admin') {
+            $adminId = $_POST['admin_id'];
+            $superPass = $_POST['super_pass'];
+            $result = $this->adminModel->deleteAdmin($adminId, $superPass);
+
+            if ($result === true) {
+                header("Location: adminDashboard.php?section=admins&success=delete");
+            } elseif ($result === "wrong_super_pass") {
+                header("Location: adminDashboard.php?section=admins&error=wrong_super_pass");
+            } elseif ($result === "last_admin") {
+                header("Location: adminDashboard.php?section=admins&error=last_admin");
+            } else {
+                header("Location: adminDashboard.php?section=admins&error=delete_fail");
+            }
+            exit;
+        }
+
+
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'delete_user') {
             $this->userModel->deleteUser($_POST['user_id']);
@@ -187,6 +226,13 @@ class AdminController {
                 $queries = $this->contactModel->getAllQueries($status);
                 include __DIR__ . "/../views/admin/sections/queries.php";
                 break;
+            case 'admins':
+            $admins = $this->adminModel->getAllAdmins();
+            include __DIR__ . "/../views/admin/sections/admins.php";
+            break;
+
+
+
 
 
             default:
