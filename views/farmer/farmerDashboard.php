@@ -28,7 +28,7 @@ $controller = new FarmerController();
       <ul class="nav-links">
         <li><a href="../../index.php">Home</a></li>
         <li><a href="farmerDashboard.php">Dashboard</a></li>
-        <li><a href="../../logout.php">Logout</a></li>
+        <li><a href="../../controllers/C_logout.php">Logout</a></li>
       </ul>
     </nav>
   </header>
