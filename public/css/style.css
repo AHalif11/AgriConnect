@@ -2011,3 +2011,208 @@ label {
 .filters button[type="submit"]:hover {
   background-color: #1b4332;
 }
+/* ---------- Section Common ---------- */
+section {
+  padding: 80px 10%;
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.section-header h2 {
+  font-size: 34px;
+  font-weight: 700;
+  color: #2c3e50;
+}
+.section-header p {
+  color: #7f8c8d;
+  margin-top: 8px;
+  font-size: 16px;
+}
+
+/* ---------- Fresh Vegetables ---------- */
+.vegetable-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+.veg-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+.veg-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.veg-card h3 {
+  margin: 15px 0 8px;
+  font-size: 20px;
+  color: #27ae60;
+}
+.veg-card p {
+  color: #555;
+  font-size: 14px;
+  padding: 0 20px 20px;
+}
+.veg-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+.veg-card:hover img {
+  transform: scale(1.08);
+}
+
+/* ---------- Reviews ---------- */
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+.review-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  transition: all 0.3s ease;
+}
+.review-top {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+.review-top img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid #27ae60;
+  object-fit: cover;
+}
+.review-top h4 {
+  margin: 0;
+  font-size: 18px;
+  color: #2c3e50;
+}
+.review-top span {
+  display: block;
+  font-size: 13px;
+  color: #7f8c8d;
+}
+.review-card p {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.6;
+}
+.review-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------- Why Choose Us ---------- */
+.why-choose {
+  background: linear-gradient(135deg, #e8f9f1, #f9fff9);
+}
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+.why-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px 25px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+.why-card i {
+  font-size: 45px;
+  color: #27ae60;
+  margin-bottom: 15px;
+}
+.why-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+.why-card p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+.why-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+/* impact */
+/* 📊 Impact / Statistics Section */
+.impact-stats {
+  padding: 60px 20px;
+  /* background: linear-gradient(135deg, #f0fff4, #ffffff); */
+  text-align: center;
+}
+
+.impact-stats .section-header h2 {
+  font-size: 2rem;
+  color: #2e7d32;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* space between icon and text */
+}
+
+.impact-stats .section-header h2 i {
+  color: #1b5e20;
+  font-size: 1.6rem;
+}
+
+.impact-stats .section-header p {
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 30px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.stat-card i {
+  font-size: 2.2rem;
+  color: #2e7d32;
+  margin-bottom: 15px;
+}
+
+.stat-card h3 {
+  font-size: 1.8rem;
+  color: #1b5e20;
+  margin-bottom: 8px;
+}
+
+.stat-card p {
+  font-size: 1rem;
+  color: #444;
+}
