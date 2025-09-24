@@ -154,13 +154,35 @@ document.addEventListener("DOMContentLoaded", function() {
           </div>
       </section>
 
-       <section>
-        <div id="discount-banner">
-          <div class="discount-banner-description"style="margin:80px 100px;">
-            <img src="../../public/images/DiscountBanner.png" alt="">
+      <!-- Highlights Section -->
+      <section id="highlights-section" class="Ahighlights">
+        <h2>Why Shop With Us?</h2>
+        <div class="Ahighlight-cards">
+          <div class="Acard">
+            <h3>🚚 Fast Delivery</h3>
+            <p>Get your orders delivered within 48 hours across Bangladesh.</p>
+          </div>
+          <div class="Acard">
+            <h3>🔒 Secure Payment</h3>
+            <p>Pay safely with multiple options including bKash, Nagad, and cards.</p>
+          </div>
+          <div class="Acard">
+            <h3>🎁 Exclusive Deals</h3>
+            <p>Enjoy weekly offers and special discounts for loyal customers.</p>
           </div>
         </div>
-       </section>
+      </section>
+
+      <!-- Announcements Section -->
+      <section id="announcements" class="Aannouncements">
+        <h2>📢 Announcements</h2>
+        <ul>
+          <li>⚡ Our mobile app is coming soon!</li>
+          <li>📦 Free delivery for orders above 2000 TK.</li>
+          <li>🤝 Support local artisans through your purchases.</li>
+        </ul>
+      </section>
+
     </main>
     
     <footer>
