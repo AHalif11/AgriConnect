@@ -49,11 +49,6 @@
                     <input style="margin-bottom: 25px;" class="inp-2" type="email" name="email" placeholder="Enter your email" required><br>
                     <button class="reg-btn" type="submit">Send Verification Code</button>
                 </form>
-                <div class="marginT">
-
-                    <label class="have-acc" for="">Remember Password?</label>
-                    <a class="GoRegBtn" href="login.php">Back to Login</a>
-                </div>
             
             </div>
         </div>

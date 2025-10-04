@@ -20,6 +20,7 @@
             <li><a href="views/about.php">About</a></li>
             <li><a href="views/contact.php">Contact</a></li>
             <li><a href="views/register.php">Register</a></li>
+            <li><a href="views/login.php">LogIn</a></li>
         </ul>
     </nav>
     <div class="banner" style="background: url(public/images/main-slider.png) no-repeat center center; background-size: cover;">
