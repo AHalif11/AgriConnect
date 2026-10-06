@@ -51,12 +51,12 @@ class ForgotPasswordModel {
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'ahalif.optional26@gmail.com';    // Replace with your Gmail
-            $mail->Password = 'uldgmldlkqrazowz';       // Replace with Gmail App Password
+            $mail->Username =    // Replace with your Gmail
+            $mail->Password =      // Replace with Gmail App Password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
-            $mail->setFrom('ahalif.optional26@gmail.com', 'AgriConnect Support');
+            $mail->setFrom('mail@example.com', 'AgriConnect Support');
             $mail->addAddress($email);
 
             $mail->isHTML(true);
